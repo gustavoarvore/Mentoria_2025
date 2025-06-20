@@ -1,13 +1,11 @@
 import requests
 import json
 
-todas_vagas = []
 
 def buscar_vagas():
-    palavras_chave = [
-        "dados"
-    ]
 
+    todas_vagas = []
+    palavras_chave = ["dados"]
     limite = 10  
     info_paginacao = {}
 
@@ -52,5 +50,7 @@ def buscar_vagas():
     with open("./data/vagas_gupy.json", "w", encoding="utf-8") as gupy:
         json.dump(resultado_final, gupy, ensure_ascii=False, indent=2)
     print("Vagas salvas com sucesso em './data/vagas_gupy.json'")
+
+    return resultado_final
 
 buscar_vagas()
